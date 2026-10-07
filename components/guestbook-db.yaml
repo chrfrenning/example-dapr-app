@@ -1,0 +1,14 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: guestbook-db
+spec:
+  type: bindings.postgresql
+  version: v1
+  metadata:
+    # Local demo credentials matching docker-compose.yml.
+    # In a real environment use a secretKeyRef to a Dapr secret store instead.
+    - name: connectionString
+      value: "host=localhost port=5432 user=guestbook password=guestbook dbname=guestbook sslmode=disable"
+scopes:
+  - guestbook-worker

@@ -1,0 +1,13 @@
+# Dapr multi-app run: `dapr run -f .`
+version: 1
+common:
+  resourcesPath: ./components
+apps:
+  - appID: guestbook-frontend
+    appDirPath: ./frontend
+    appPort: 5000
+    command: ["python3", "app.py"]
+  - appID: guestbook-worker
+    appDirPath: ./worker
+    appPort: 5001
+    command: ["python3", "app.py"]

@@ -1,0 +1,10 @@
+# PostgreSQL for the guestbook. Redis comes from `dapr init`.
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: guestbook
+      POSTGRES_PASSWORD: guestbook
+      POSTGRES_DB: guestbook
+    ports:
+      - "5432:5432"
